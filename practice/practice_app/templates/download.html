@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form method="post" action="">
+      {%csrf_token%}
+      <input type="text" placeholder="enter name" name="name" />
+      <datalist>
+        {% for n in name %}
+        <option value="{{ n.name }}"></option>
+        {% endfor %}
+      </datalist>
+      <button type="submit">Submit</button>
+    </form>
+    <button type="submit"><a href="{% url 'download_all1' %}">ALL</a></button>
+  </body>
+</html>
